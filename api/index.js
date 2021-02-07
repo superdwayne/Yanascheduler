@@ -31,28 +31,28 @@ app.all('/', (req, res) => {
         res.send(people)
 
     
-    //      var transporter = nodemailer.createTransport({
-    //     service: 'gmail',
-    //     auth: {
-    //       user: `${process.env.USERNAME}`,
-    //       pass: `${process.env.PASSWORD}`
-    //     }
-    //   });
+         var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: `${process.env.USERNAME}`,
+          pass: `${process.env.PASSWORD}`
+        }
+      });
     
-    // var mailOptions = {
-    //     from: 'ddpmarshall@gmail.com',
-    //     to: 'superdwayne@gmail.com',
-    //     subject: 'Someone wants to meet Yana',
-    //     text: 'Yana has a new booking'
-    //   };
+    var mailOptions = {
+        from: 'ddpmarshall@gmail.com',
+        to: 'superdwayne@gmail.com',
+        subject: 'Someone wants to meet Yana',
+        text: 'Yana has a new booking'
+      };
     
-    //   transporter.sendMail(mailOptions, function(error, info){
-    //     if (error) {
-    //       console.log(error);
-    //     } else {
-    //       console.log('Email sent: ' + info.response);
-    //     }
-    //   });
+      transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+          console.log(error);
+        } else {
+          console.log('Email sent: ' + info.response);
+        }
+      });
     
         
 	} else if (req.method === 'POST') {
