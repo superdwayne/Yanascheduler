@@ -2,12 +2,17 @@
 
 This project was created so that people could book time to meet our baby
 
+
+
+## The set up
+
+So on the front end you have a React build and on the back end you have an node express server.
+
 ## How does it work?
 
-So on the front end you have a React build.
-On the back end you have an node express server.
+There is a HTML form on the front end, when the form is completed the information is sent to the back end, and retrived at the same time to display on the front end
 
-So when you use the form you post the information to the back end, and at the same time you reteive the infomation on the front end.
+Lastly an email is send letting one know they have a new booking.
 
 ### `yarn dpm`
 
