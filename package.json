@@ -25,6 +25,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "engines": {
+    "yarn": "^1.21.1"
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
