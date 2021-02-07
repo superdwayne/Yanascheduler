@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import Request from './requests';
+import moment from 'moment'
+
+
 import './App.css';
 
 
@@ -64,6 +67,9 @@ class App extends Component {
 
   render() {
 
+    const min = '2021-02-08'
+    const max = ['2021-02-14', '2021-02-21', '2021-02-28']
+
     return (
       <div className="App">
 
@@ -80,15 +86,23 @@ class App extends Component {
         <section className="half">
           <form method="post" action="http://localhost:8000/" encType="application/json">
             <input type='text' required onChange={this.myDetails} value={this.state.name} placeholder="Name" name='name'></input>
-            <input type='date' required min="2021-02-06" max="2021-02-10" onChange={this.myDetailsDate} placeholder="date" value={this.state.date} name='date'></input>
+            <input type='date' required min={min} max={this.state.date > moment().add(6, 'days').format('YYYY-MM-DD') ? max[1] : max[0] } onChange={this.myDetailsDate} placeholder="date" value={this.state.date} name='date'></input>
+          
+      
 
+            {/* { moment(Date.now()).format('YYYY-MM-DD') < max ? 'hello' : 'bye' } */}
+          {console.log(">>>" ,moment().add(7, 'days').format('YYYY-MM-DD'))}
+          {/* if moment > that input(max)
+          provide more dates
+          & relase the booking button */}
             <select required name="time" id="time" onChange={this.myDetailsTime} >
               <option value={this.state.time} name='time'>12:00</option>
               <option value={this.state.time} name='time'>16:00</option>
             </select>
 
-
-            {this.state.entries.length > 3 ? <button type="submit"  disabled>Sorry we're booked up </button> : <button type="submit" >I'm ready to meet Yana</button>}
+            {/* { moment().add(8, 'days').format('YYYY-MM-DD') > this.state.date  ? null : <button className="active" type="submit" >I'm ready to meet Yana</button> } */}
+            
+            {this.state.entries.length > 3 ? <button type="submit" disabled>Sorry we're booked up </button> : <button type="submit" >I'm ready to meet Yana</button> }
           </form>
 
           {this.state.entries.length > 0 ? <h3 >Booked meeting this week</h3> : null}
