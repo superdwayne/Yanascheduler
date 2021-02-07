@@ -1,7 +1,6 @@
 const express = require('express')
 var path = require('path');
 const bodyParser = require("body-parser");
-const router = express.Router();
 const cors = require('cors')
 const app = express()
 require('dotenv').config();
@@ -24,19 +23,14 @@ app.use(bodyParser.urlencoded({
    extended: false
 }));
 
-
-
 const people =[]
-
-
 
 app.all('/', (req, res) => {
 	if (req.method === 'GET') {
         res.status(200);
         res.send(people)
 
-       
-
+    
     //      var transporter = nodemailer.createTransport({
     //     service: 'gmail',
     //     auth: {
@@ -62,28 +56,19 @@ app.all('/', (req, res) => {
     
         
 	} else if (req.method === 'POST') {
-        
-       
+           
         res.redirect('http://localhost:3000/styles/index.html')
-        console.log (res.status)
-       
+    
         const obj = {
             name: req.body.name,
             time: req.body.time,
             date: req.body.date,
            }
            people.push(obj);
-        
-           console.log(obj)
-           
            
            res.end();
-	
-		
 	}
 });
-
-
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
