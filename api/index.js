@@ -59,7 +59,7 @@ app.all('/', (req, res) => {
         
 	} else if (req.method === 'POST') {
            
-        res.redirect('/con/index.html')
+        res.redirect('https://yana-scheduler.herokuapp.com/con/index.html')
     
         const obj = {
             name: req.body.name,
