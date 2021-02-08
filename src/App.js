@@ -87,9 +87,7 @@ class App extends Component {
             <input type='text' required onChange={this.myDetails} value={this.state.name} placeholder="Name" name='name'></input>
             <input type='date' required min={min} max={this.state.date > moment().add(6, 'days').format('YYYY-MM-DD') ? max[1] : max[0] } onChange={this.myDetailsDate} placeholder="date" value={this.state.date} name='date'></input>
           
-      
-
-            {/* { moment(Date.now()).format('YYYY-MM-DD') < max ? 'hello' : 'bye' } */}
+          {/* { moment(Date.now()).format('YYYY-MM-DD') < max ? 'hello' : 'bye' } */}
           {console.log(">>>" ,moment().add(7, 'days').format('YYYY-MM-DD'))}
           {/* if moment > that input(max)
           provide more dates
