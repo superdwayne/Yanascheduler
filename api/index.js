@@ -59,7 +59,7 @@ app.all('/', (req, res) => {
         
 	} else if (req.method === 'POST') {
            
-        res.redirect('http://localhost:3000/styles/index.html')
+        res.redirect('/con/index.html')
     
         const obj = {
             name: req.body.name,
