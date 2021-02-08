@@ -1,3 +1,4 @@
+
 const express = require('express')
 var path = require('path');
 const bodyParser = require("body-parser");
@@ -15,6 +16,7 @@ app.use((req, res, next) => {
 	res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
 	res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept');
+    res.header('Access-Control-Allow-Origin', '*');
     // res.setHeader('Content-Type', 'html/css'); Use if you want to download what you've sent
 	next();
 });
