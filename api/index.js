@@ -6,7 +6,7 @@ const app = express()
 require('dotenv').config();
 const nodemailer = require('nodemailer');
 
-const port = process.env.PORT || 8000
+const port = process.env.PORT || 5000
 
 app.use('/styles', express.static(path.join(__dirname, 'public')))
 app.use(cors())
