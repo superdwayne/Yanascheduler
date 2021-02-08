@@ -23,7 +23,6 @@
     "heroku-postbuild": "cd api && yarn start && yarn build",
     "dpm": " concurrently \"yarn run dev_server\" \"yarn run dev_client\"",
     "start": "react-scripts start",
-    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
