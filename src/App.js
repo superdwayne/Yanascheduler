@@ -48,22 +48,21 @@ class App extends Component {
 
 
 
-  //  pushtoE =  (e) => {
-  //   if (this.state.entries.lenth > 0) {
-  //     console.log('hello')
+   pushtoE =  (e) => {
+    if (this.state.entries.lenth > 0) {
+     
+      this.state.entries.map((people) =>
+        console.log(">>>", people))
+    } else {
       
-  //     this.forceUpdate();
-  //     this.state.entries.map((people) =>
-  //       console.log(">>>", people))
-  //   } else {
-  //     this.state.entries.map((people) =>
-  //       console.log(">>>", people))
-  //     console.log('bye')
+      this.state.entries.map((people) =>
+       
+      console.log('bye' ,people)
+      )
       
-  //     this.forceUpdate();
-  //   }
+    }
 
-  // }
+  }
 
   render() {
 
@@ -84,7 +83,7 @@ class App extends Component {
         </section>
 
         <section className="half">
-          <form method="post" action="http://localhost:8080/" encType="application/json">
+          <form method="post" onClick={this.pushtoE} action="http://localhost:8080/" encType="application/json">
             <input type='text' required onChange={this.myDetails} value={this.state.name} placeholder="Name" name='name'></input>
             <input type='date' required min={min} max={this.state.date > moment().add(6, 'days').format('YYYY-MM-DD') ? max[1] : max[0] } onChange={this.myDetailsDate} placeholder="date" value={this.state.date} name='date'></input>
           

@@ -32,34 +32,43 @@ app.all('/', (req, res) => {
         res.status(200);
         res.send(people)
 
-    
-         var transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-          user: `${process.env.USERNAME}`,
-          pass: `${process.env.PASSWORD}`
-        }
-      });
-    
-    var mailOptions = {
-        from: 'ddpmarshall@gmail.com',
-        to: 'superdwayne@gmail.com',
-        subject: 'Someone wants to meet Yana',
-        text: 'Yana has a new booking'
-      };
-    
-      transporter.sendMail(mailOptions, function(error, info){
-        if (error) {
-          console.log(error);
-        } else {
-          console.log('Email sent: ' + info.response);
-        }
-      });
+    if (people.length >= 1){
+
+        var transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+              user: `${process.env.USERNAME}`,
+              pass: `${process.env.PASSWORD}`
+            }
+          });
+        
+        var mailOptions = {
+            from: 'ddpmarshall@gmail.com',
+            to: 'superdwayne@gmail.com',
+            subject: 'Someone wants to meet Yana',
+            text: 'Yana has a new booking'
+          };
+        
+          transporter.sendMail(mailOptions, function(error, info){
+            if (error) {
+              console.log(error);
+            } else {
+              console.log('Email sent: ' + info.response);
+            }
+          });
+
+    } else {
+
+        console.log('did not send email')
+
+    }
+        
     
         
 	} else if (req.method === 'POST') {
            
         res.redirect('https://yana-scheduler.herokuapp.com/con/index.html')
+        // res.redirect('http://localhost:3000/con/index.html')
     
         const obj = {
             name: req.body.name,
