@@ -20,9 +20,9 @@
   "scripts": {
     "dev_server": "cd api && nodemon index.js",
     "dev_client": "yarn start",
-    "heroku-postbuild": "yarn && yarn build",
     "dpm": " concurrently \"yarn run dev_server\" \"yarn run dev_client\"",
     "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
