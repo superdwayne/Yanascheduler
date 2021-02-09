@@ -6,17 +6,23 @@ const app = express()
 require('dotenv').config();
 const nodemailer = require('nodemailer');
 
-const port = process.env.PORT || 8080
+const port = process.env.PORT || 8002
 
 console.log(process.env.NODE_ENV)
 
-
-
-app.use('/styles', express.static(path.join(__dirname, 'public')))
 app.use(cors())
 
+app.use(express.static(path.join(__dirname, 'build')));
+
+app.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  });
+
+app.use('/styles', express.static(path.join(__dirname, 'public')))
+
+
 app.use((req, res, next) => {
-	res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+	res.setHeader('Access-Control-Allow-Origin', 'https://yana-scheduler.herokuapp.com/');
 	res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept');
     res.header('Access-Control-Allow-Origin', '*');
