@@ -10,13 +10,13 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "heroku": "^7.47.12",
+    "http-proxy-middleware": "^1.0.6",
     "moment": "^2.29.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.2",
     "web-vitals": "^1.0.1"
   },
- 
   "scripts": {
     "dev_server": "cd api && nodemon index.js",
     "dev_client": "yarn start",
@@ -30,6 +30,7 @@
     "yarn": "1.21.1",
     "node": "12.16.1"
   },
+  "proxy": "http://localhost:8080/",
   "eslintConfig": {
     "extends": [
       "react-app",
