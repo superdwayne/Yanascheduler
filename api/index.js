@@ -8,6 +8,8 @@ const nodemailer = require('nodemailer');
 
 const port = process.env.PORT || 8080
 
+console.log(process.env.PORT)
+
 app.use('/styles', express.static(path.join(__dirname, 'public')))
 app.use(cors())
 

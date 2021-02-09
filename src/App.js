@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Request from './requests';
 import Server from './server';
 import moment from 'moment'
+import dpm from './images/dpm-yana.png';
+import sophie from './images/spm-yana.png';
 
 
 import './App.css';
@@ -81,6 +83,10 @@ class App extends Component {
           <p>Spaces are limited atm as I'm still growing</p>
         
           <small>* times may be subject to change, as I may be sleeping, but I'll do my best</small>
+          <section className="pics">
+            <img className="img50" src={dpm} alt="Yana and Dad" />
+            <img className="img50" src={sophie} alt="Yana and Mum" />
+          </section>
         </section>
 
         <section className="half">
