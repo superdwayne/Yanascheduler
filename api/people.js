@@ -4,8 +4,15 @@ const bodyParser = require('body-parser')
 const jsonParser = bodyParser.json()
 const { mongoFind, mongoInsert } = require('./../mongo')
 const middleware = require('./middleware');
+const cors = require('cors')
+app.use(cors())
+
+app.use((req, res, next) => {
+	res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000/');
+})
 
 app.get('/', (req, res) => {
+    
     // res.send('root')
     mongoFind('people', {}, 0, response => {
         res.send(response)

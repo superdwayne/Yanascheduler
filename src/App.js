@@ -30,7 +30,7 @@ class App extends Component {
       },
     };
 
-    Request(`${Server}`, params, (response) => {
+    Request(`https://yana-scheduler.herokuapp.com/api/people`, params, (response) => {
       console.log( ">>>" , response)
       this.setState({  entries: response })
     });
