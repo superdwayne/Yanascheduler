@@ -6,10 +6,10 @@ const { mongoFind, mongoInsert } = require('./../mongo')
 const middleware = require('./middleware');
 
 app.get('/', (req, res) => {
-    res.send('root')
-    // mongoFind('people', {}, 0, response => {
-    //     res.send(response)
-    // })
+    // res.send('root')
+    mongoFind('people', {}, 0, response => {
+        res.send(response)
+    })
 
 })
 const people = []

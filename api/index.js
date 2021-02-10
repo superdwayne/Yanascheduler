@@ -12,7 +12,7 @@ const peopleRoute = require('./people');
 
 const port = process.env.NODE_ENV  || 8080
 
-console.log(process.env.NODE_ENV)
+
 
 app.use(cors())
 
