@@ -1,4 +1,5 @@
 const express = require('express')
+const middleware = require('./middleware');
 const router = express.Router();
 const { mongoFind, mongoInsert, mongoUpdate, mongoRemove } = require('./../mongo')
 var path = require('path');
@@ -7,8 +8,9 @@ const cors = require('cors')
 const app = express()
 require('dotenv').config();
 const nodemailer = require('nodemailer');
+const peopleRoute = require('./people');
 
-const port = process.env.PORT || 8080
+const port = process.env.NODE_ENV  || 8080
 
 console.log(process.env.NODE_ENV)
 
@@ -22,6 +24,7 @@ app.use(cors())
 
 app.use('/styles', express.static(path.join(__dirname, 'public')))
 
+app.use('/api/people', peopleRoute)
 
 app.use((req, res, next) => {
 	// res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000/');
@@ -44,6 +47,7 @@ const peopletest = [{
 }]
 
 
+
 app.all('/', (req, res) => {
 	if (req.method === 'GET') {
         //res.status(200);
@@ -53,6 +57,8 @@ app.all('/', (req, res) => {
           res.send(response)
 
         })
+
+        
 
     // if (people.length >= 1){
 
