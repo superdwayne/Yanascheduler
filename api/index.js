@@ -44,8 +44,6 @@ const peopletest = [{
 }]
 
 
-  
-
 app.all('/', (req, res) => {
 	if (req.method === 'GET') {
         //res.status(200);
@@ -53,7 +51,6 @@ app.all('/', (req, res) => {
 
         mongoFind('people', {}, 0, response => {
           res.send(response)
-        
         })
 
     // if (people.length >= 1){
@@ -87,17 +84,14 @@ app.all('/', (req, res) => {
 
     // }
         
-    
+
         
 	} else if (req.method === 'POST') {
 
-    mongoInsert('people', people, response => {
-      //res.send(response)
-      console.log(response)
-    })
-           
-        // res.redirect('https://yana-scheduler.herokuapp.com/con/index.html')
-        res.redirect('http://localhost:3000/con/index.html')
+   
+    
+        res.redirect('https://yana-scheduler.herokuapp.com/con/index.html')
+        // res.redirect('http://localhost:3000/con/index.html')
     
         const obj = {
             name: req.body.name,
@@ -105,6 +99,11 @@ app.all('/', (req, res) => {
             date: req.body.date,
            }
            people.push(obj);
+
+           mongoInsert('people', people, response => {
+      
+            console.log("Inserted into DB", response.result.ok)
+          })
            
            res.end();
 	}
