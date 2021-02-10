@@ -51,6 +51,7 @@ app.all('/', (req, res) => {
 
         mongoFind('people', {}, 0, response => {
           res.send(response)
+
         })
 
     // if (people.length >= 1){
