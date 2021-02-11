@@ -1,16 +1,20 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser')
+const router = express.Router();
 const jsonParser = bodyParser.json()
 const { mongoFind, mongoInsert } = require('./../mongo')
 const middleware = require('./middleware');
 
 
-app.get('/', (req, res) => {
+router.get('/', (req, res) => {
+
+    
     // res.json('root')
-    mongoFind('people', {}, 0, response => {
-        res.send(response)
-    })
+    // let limit = 0
+    // mongoFind('people', {}, limit, response => {
+    //     res.send(response)
+    // })
 
 })
 // const people = []
@@ -33,4 +37,4 @@ app.get('/', (req, res) => {
 
 // })
 
-module.exports = app;
+module.exports = router;

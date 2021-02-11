@@ -1,15 +1,6 @@
 const MongoClient = require('mongodb').MongoClient;
 
-const uri = "mongodb+srv://dpm:Marshall99@cluster0.ncemy.mongodb.net/YANA?retryWrites=true&w=majority";
-const client = new MongoClient(uri, {useUnifiedTopology: true});
 
-client.connect().then((client)=>{
-    var db = client.db('Yana')
-    db.collection('people').find().toArray(function (err, result) {
-        if (err) throw err
-        console.log(result);
-    })
-})
 
 const mongo = {
     uri: "mongodb+srv://dpm:Marshall99@cluster0.ncemy.mongodb.net/Yana?retryWrites=true&w=majority?mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb",
@@ -19,6 +10,7 @@ const mongo = {
       useUnifiedTopology: true
     }
   }
+
 
 
 const mongoInsert = (collection, obj, cb) => {
