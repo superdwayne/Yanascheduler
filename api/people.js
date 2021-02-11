@@ -6,7 +6,6 @@ const jsonParser = bodyParser.json()
 const { mongoFind, mongoInsert } = require('./../mongo')
 
 
-
 app.get('/', (req, res) => {
 
     // res.json('root')

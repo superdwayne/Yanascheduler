@@ -3,6 +3,18 @@
   display: flex;
 }
 
+.img50 {
+  width: 50%;
+}
+
+.pics {
+  display: flex;
+  padding-top: 50px;
+}
+.pics img {
+  margin: 10px;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

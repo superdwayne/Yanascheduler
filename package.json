@@ -10,19 +10,20 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "heroku": "^7.47.12",
+    "http-proxy-middleware": "^1.0.6",
     "moment": "^2.29.1",
+    "mongodb": "^3.6.4",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.2",
     "web-vitals": "^1.0.1"
   },
- 
   "scripts": {
-    "dev_server": "cd api && nodemon index.js",
+    "dev_server": "cd api && nodemon main.js",
     "dev_client": "yarn start",
-    "heroku-postbuild": "cd api && yarn start && yarn build",
     "dpm": " concurrently \"yarn run dev_server\" \"yarn run dev_client\"",
     "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
