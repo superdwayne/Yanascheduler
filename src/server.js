@@ -1,7 +1,7 @@
 let Server;
 if (process.env.NODE_ENV === "production") {
-  Server = "https://farfetch-cors.herokuapp.com/https://yana-scheduler.herokuapp.com/api/people";
+  Server = "https://yana-scheduler.herokuapp.com/api/people";
 } else {
-  Server = "https://farfetch-cors.herokuapp.com/https://yana-scheduler.herokuapp.com/api/people";
+  Server = "http://localhost:8080/api/people";
 }
 export default Server;  

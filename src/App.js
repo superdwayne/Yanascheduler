@@ -22,6 +22,8 @@ class App extends Component {
 
   componentDidMount() {
 
+    console.log(process.env.NODE_ENV)
+
     const params = {
       method: 'GET',
       body: JSON.stringify(),
