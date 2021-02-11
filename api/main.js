@@ -21,7 +21,7 @@ app.use('/styles', express.static(path.join(__dirname, 'public')))
 app.use((req, res, next) => {
 	res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000/');
 	res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept');
+    res.header('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept');
     res.header('Access-Control-Allow-Origin', '*');
     // res.setHeader('Content-Type', 'html/css'); Use if you want to download what you've sent
 	next(); 
@@ -95,15 +95,12 @@ app.use('/api/people', peopleRoute)
 // 	}
 // });
 
-if (process.env.NODE_ENV === 'development') {
-  // Serve any static files
-  app.use(express.static(path.join(__dirname, './build')));
-// Handle React routing, return all requests to React app
-  app.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname, './build', 'index.html'));
-  });
-}
-
+ // Serve any static files
+ app.use(express.static(path.join(__dirname, './build')));
+ // Handle React routing, return all requests to React app
+   app.get('*', function(req, res) {
+     res.sendFile(path.join(__dirname, './build', 'index.html'));
+   });
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
