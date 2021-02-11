@@ -4,12 +4,10 @@ const bodyParser = require('body-parser')
 const router = express.Router();
 const jsonParser = bodyParser.json()
 const { mongoFind, mongoInsert } = require('./../mongo')
-const middleware = require('./middleware');
 
 
-router.get('/', (req, res) => {
+app.get('/', (req, res) => {
 
-    
     // res.json('root')
     // let limit = 0
     // mongoFind('people', {}, limit, response => {
@@ -37,4 +35,4 @@ router.get('/', (req, res) => {
 
 // })
 
-module.exports = router;
+module.exports = app;

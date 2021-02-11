@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import Request from './requests';
 import Server from './server';
 import moment from 'moment'
-import dpm from './images/dpm-yana.png';
-import sophie from './images/spm-yana.png';
 
 
 import './App.css';
@@ -21,8 +19,6 @@ class App extends Component {
 
 
   componentDidMount() {
-
-    console.log(process.env.NODE_ENV)
 
     const params = {
       method: 'GET',
@@ -55,16 +51,17 @@ class App extends Component {
 
   //  pushtoE =  (e) => {
   //   if (this.state.entries.lenth > 0) {
-     
+  //     console.log('hello')
+      
+  //     this.forceUpdate();
   //     this.state.entries.map((people) =>
   //       console.log(">>>", people))
   //   } else {
-      
   //     this.state.entries.map((people) =>
-       
-  //     console.log('bye' ,people)
-  //     )
+  //       console.log(">>>", people))
+  //     console.log('bye')
       
+  //     this.forceUpdate();
   //   }
 
   // }
@@ -85,18 +82,16 @@ class App extends Component {
           <p>Spaces are limited atm as I'm still growing</p>
         
           <small>* times may be subject to change, as I may be sleeping, but I'll do my best</small>
-          <section className="pics">
-            <img className="img50" src={dpm} alt="Yana and Dad" />
-            <img className="img50" src={sophie} alt="Yana and Mum" />
-          </section>
         </section>
 
         <section className="half">
-          <form method="post"  action={Server} encType="application/json">
+          <form method="post" action={Server} encType="application/json">
             <input type='text' required onChange={this.myDetails} value={this.state.name} placeholder="Name" name='name'></input>
             <input type='date' required min={min} max={this.state.date > moment().add(6, 'days').format('YYYY-MM-DD') ? max[1] : max[0] } onChange={this.myDetailsDate} placeholder="date" value={this.state.date} name='date'></input>
           
-          {/* { moment(Date.now()).format('YYYY-MM-DD') < max ? 'hello' : 'bye' } */}
+      
+
+            {/* { moment(Date.now()).format('YYYY-MM-DD') < max ? 'hello' : 'bye' } */}
           {console.log(">>>" ,moment().add(7, 'days').format('YYYY-MM-DD'))}
           {/* if moment > that input(max)
           provide more dates
@@ -122,6 +117,7 @@ class App extends Component {
                   <li>When: <strong>{people.date}</strong></li>
                   <li>Time: <strong>{people.time}</strong></li>
                 </ul>
+
 
               </div>)}
           </div>
