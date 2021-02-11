@@ -95,7 +95,7 @@ app.use('/api/people', peopleRoute)
 // 	}
 // });
 
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'development') {
   // Serve any static files
   app.use(express.static(path.join(__dirname, './build')));
 // Handle React routing, return all requests to React app
