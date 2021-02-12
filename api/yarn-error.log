@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /Users/dwayne.p-marshall/.yarn/bin/yarn.js add jsonParser
+  /usr/local/bin/node /Users/dwayne.p-marshall/.yarn/bin/yarn.js add concurrently:
 
 PATH: 
   /Users/dwayne.p-marshall/.yarn/bin:/Users/dwayne.p-marshall/.config/yarn/global/node_modules/.bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
@@ -14,17 +14,17 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/jsonParser: Not found
-      at Request.params.callback [as _callback] (/Users/dwayne.p-marshall/.yarn/lib/cli.js:66947:18)
-      at Request.self.callback (/Users/dwayne.p-marshall/.yarn/lib/cli.js:140665:22)
-      at Request.emit (events.js:311:20)
-      at Request.<anonymous> (/Users/dwayne.p-marshall/.yarn/lib/cli.js:141637:10)
-      at Request.emit (events.js:311:20)
-      at IncomingMessage.<anonymous> (/Users/dwayne.p-marshall/.yarn/lib/cli.js:141559:12)
-      at Object.onceWrapper (events.js:417:28)
-      at IncomingMessage.emit (events.js:323:22)
-      at endReadableNT (_stream_readable.js:1204:12)
-      at processTicksAndRejections (internal/process/task_queues.js:84:21)
+  Error: Invalid URL
+      at module.exports.module.exports (/Users/dwayne.p-marshall/.yarn/lib/cli.js:71780:9)
+      at urlParts (/Users/dwayne.p-marshall/.yarn/lib/cli.js:31614:75)
+      at NpmRegistry.isRequestToRegistry (/Users/dwayne.p-marshall/.yarn/lib/cli.js:31657:19)
+      at NpmRegistry.<anonymous> (/Users/dwayne.p-marshall/.yarn/lib/cli.js:31689:31)
+      at Generator.next (<anonymous>)
+      at step (/Users/dwayne.p-marshall/.yarn/lib/cli.js:310:30)
+      at /Users/dwayne.p-marshall/.yarn/lib/cli.js:328:14
+      at new Promise (<anonymous>)
+      at new F (/Users/dwayne.p-marshall/.yarn/lib/cli.js:5301:28)
+      at NpmRegistry.<anonymous> (/Users/dwayne.p-marshall/.yarn/lib/cli.js:307:12)
 
 npm manifest: 
   {
@@ -37,6 +37,7 @@ npm manifest:
       "body-parser": "^1.19.0",
       "express": "^4.17.1",
       "http-proxy-middleware": "^1.0.6",
+      "jsonparser": "^1.0.1",
       "mongoose": "^5.11.15",
       "node": "^15.8.0",
       "nodemailer": "^6.4.17",
@@ -44,10 +45,16 @@ npm manifest:
       "path": "^0.12.7",
       "router": "^1.3.5"
     },
+    "proxy": "https://yana-scheduler.herokuapp.com/",
+  
+    
+  
     "scripts": {
-      "start": "nodemon index.js",
+      "dev_server": "nodemon index.js",
+      "dev_client": "cd app yarn start",
+      "dpm": "concurrently \"yarn run dev_server\" \"yarn run dev_client\"",
+      "heroku-postbuild": "cd api && yarn && yarn build",
       "heroku-prebuild": "echo This runs before Heroku installs dependencies.",
-      "heroku-postbuild": "echo This runs after Heroku installs dependencies, but before Heroku prunes and caches dependencies.",
       "heroku-cleanup": "echo This runs after Heroku prunes and caches dependencies."
     }
   }
@@ -782,6 +789,13 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/json-buffer/-/json-buffer-3.0.0.tgz#5b1f397afc75d677bde8bcfc0e47e1f9a3d9a898"
     integrity sha1-Wx85evx11ne96Lz8Dkfh+aPZqJg=
   
+  jsonparser@^1.0.1:
+    version "1.0.1"
+    resolved "https://registry.yarnpkg.com/jsonparser/-/jsonparser-1.0.1.tgz#94db84a7178526ed3669806f994783126191a72d"
+    integrity sha1-lNuEpxeFJu02aYBvmUeDEmGRpy0=
+    dependencies:
+      type-is "^1.6.14"
+  
   kareem@2.3.2:
     version "2.3.2"
     resolved "https://registry.yarnpkg.com/kareem/-/kareem-2.3.2.tgz#78c4508894985b8d38a0dc15e1a8e11078f2ca93"
@@ -1411,7 +1425,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-0.8.1.tgz#09e249ebde851d3b1e48d27c105444667f17b83d"
     integrity sha512-4dbzIzqvjtgiM5rw1k5rEHtBANKmdudhGyBEajN01fEyhaAIhsoKNy6y7+IN93IfpFtwY9iqi7kD+xwKhQsNJA==
   
-  type-is@~1.6.17, type-is@~1.6.18:
+  type-is@^1.6.14, type-is@~1.6.17, type-is@~1.6.18:
     version "1.6.18"
     resolved "https://registry.yarnpkg.com/type-is/-/type-is-1.6.18.tgz#4e552cd05df09467dcbc4ef739de89f2cf37c131"
     integrity sha512-TkRKr9sUTxEH8MdfuCSP7VizJyzRNMjj2J2do2Jr3Kym598JVdEksuzPQCnlFPW4ky9Q+iA+ma9BGm06XQBy8g==

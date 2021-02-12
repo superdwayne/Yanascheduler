@@ -3,7 +3,7 @@ const app = express();
 const bodyParser = require('body-parser')
 const router = express.Router();
 const jsonParser = bodyParser.json()
-const { mongoFind, mongoInsert } = require('./../mongo')
+const { mongoFind, mongoInsert } = require('../mongo')
 
 
 app.get('/', (req, res) => {
