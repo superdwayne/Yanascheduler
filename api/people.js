@@ -8,11 +8,9 @@ const { mongoFind, mongoInsert } = require('../mongo')
 
 app.get('/', (req, res) => {
 
-    // res.json('root')
-    // let limit = 0
-    // mongoFind('people', {}, limit, response => {
-    //     res.send(response)
-    // })
+    mongoFind('people', {}, 0, response => {
+        res.json(response)
+      })
 
 })
 // const people = []
