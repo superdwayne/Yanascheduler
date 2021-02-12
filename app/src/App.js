@@ -32,7 +32,7 @@ class App extends Component {
 
     Request(`${Server}`, params, (response) => {
       console.log( ">>>" , response)
-      this.setState({  entries: response })
+      this.setState({  entries: JSON.parse(JSON.stringify(response)) })
     });
 
   }
@@ -121,7 +121,8 @@ class App extends Component {
                 </ul>
 
 
-              </div>)}
+              </div>
+              )}
           </div>
 
         </section>

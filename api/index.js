@@ -31,8 +31,19 @@ app.use(bodyParser.urlencoded({
 const people =[]
 
 // Localhost /api/people
-app.use('/api/people', peopleRoute, (req, res) => {
-  console.log('API people' , res)
+// app.use('/api/people', peopleRoute, (req, res) => {
+//   console.log('API people' , res)
+// })
+
+app.get('/api/people', cors(), async (req, res, next) => {
+  try {
+    // res.json([{_id :"6025ad0432fe05e10ed77ba2",name:"Sophie",time:"12:00",date:"2021-02-13"}])
+    mongoFind('people', {}, 0, response => {
+      res.json(response)
+    })
+  } catch (err) {
+    next(err)
+  }
 })
 
 app.all('/', (req, res) => {
@@ -91,10 +102,10 @@ app.all('/', (req, res) => {
 
 
  // Serve any static files
- app.use(express.static(path.join(__dirname, '../build')));
+ app.use(express.static(path.join(__dirname, '../app/build')));
  // Handle React routing, return all requests to React app
    app.get('*', function(req, res) {
-     res.sendFile(path.join(__dirname, '../build', 'index.html'));
+     res.sendFile(path.join(__dirname, '../app/build', 'index.html'));
    });
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
