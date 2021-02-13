@@ -1,1 +1,1 @@
-web: node yarn dpm
+web: node index.js 
