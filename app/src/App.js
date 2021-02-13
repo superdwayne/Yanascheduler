@@ -27,10 +27,12 @@ class App extends Component {
       body: JSON.stringify(),
       headers: {
         'Content-Type': 'application/json',
+        'accepts': 'application/json'
       },
     };
 
-    Request(`${Server}/people`, params, (response) => {
+    Request(`/api/people`, params, (response) => {
+
       console.log( ">>>" , response)
       this.setState({  entries: JSON.parse(JSON.stringify(response)) })
     });
@@ -87,7 +89,7 @@ class App extends Component {
         </section>
 
         <section className="half">
-          <form method="post" action="/api/people" encType="application/json">
+          <form method="post" action={Server} encType="application/json">
             <input type='text' required onChange={this.myDetails} value={this.state.name} placeholder="Name" name='name'></input>
             <input type='date' required min={min} max={this.state.date > moment().add(6, 'days').format('YYYY-MM-DD') ? max[1] : max[0] } onChange={this.myDetailsDate} placeholder="date" value={this.state.date} name='date'></input>
           

@@ -23,6 +23,6 @@ if (process.env.NODE_ENV == 'production') {
      res.sendFile(path.join(__dirname, '/app/build', 'index.html'));
    });
 }
-app.listen(process.env.PORT || 8000, () => {
+app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })

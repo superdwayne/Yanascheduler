@@ -7,7 +7,7 @@ client.connect().then((client)=>{
     var db = client.db('Yana')
     db.collection('people').find().toArray(function (err, result) {
         if (err) throw err
-        console.log(">> Whats in DB >>", result);
+       // console.log(">> Whats in DB >>", result);
         
     })
 })
@@ -20,8 +20,6 @@ const mongo = {
       useUnifiedTopology: true
     }
   }
-
-
 
 const mongoInsert = (collection, obj, cb) => {
   MongoClient.connect(mongo.uri, mongo.params , function(err, db) {
