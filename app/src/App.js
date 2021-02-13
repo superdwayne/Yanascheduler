@@ -30,7 +30,7 @@ class App extends Component {
       },
     };
 
-    Request(`${Server}`, params, (response) => {
+    Request(`/api/people`, params, (response) => {
       console.log( ">>>" , response)
       this.setState({  entries: JSON.parse(JSON.stringify(response)) })
     });
