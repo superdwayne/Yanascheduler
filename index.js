@@ -10,23 +10,22 @@ const nodemailer = require('nodemailer');
 
 const port = process.env.PORT || 8000
 
-app.listen(process.env.PORT || 8000);
+
 
 app.use(cors())
-
-
 
 app.use('/api/people', peopleRoute, (req, res) => {
   console.log('API people' , res)
 })
 
-
-//  // Serve any static files
-//  app.use(express.static(path.join(__dirname, '/app/build')));
-//  // Handle React routing, return all requests to React app
-//    app.get('*', function(req, res) {
-//      res.sendFile(path.join(__dirname, '/app/build', 'index.html'));
-//    });
-app.listen(port, () => {
+if (process.env.NODE_ENV == 'production') {
+ // Serve any static files
+ app.use(express.static(path.join(__dirname, '/app/build')));
+ // Handle React routing, return all requests to React app
+   app.get('*', function(req, res) {
+     res.sendFile(path.join(__dirname, '/app/build', 'index.html'));
+   });
+}
+app.listen(process.env.PORT || 8000, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
