@@ -7,15 +7,12 @@ require('dotenv').config();
 const peopleRoute = require('./api/people');
 
 const nodemailer = require('nodemailer');
-
 const port = process.env.PORT || 8000
-
-
 
 app.use(cors())
 
-app.use('/api/people', peopleRoute, (req, res) => {
-  console.log('API people' , res)
+app.use('/api/people', cors(), peopleRoute, (req, res) => {
+  console.log("Connect to end poing" )
 })
 
 if (process.env.NODE_ENV == 'production') {

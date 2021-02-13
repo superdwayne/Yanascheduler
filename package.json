@@ -22,7 +22,7 @@
   "engines": {
     "yarn": "1.21.1"
   },
-  "proxy": "http://localhost:8000",
+ 
   "scripts": {
     "dev_server": "nodemon index.js",
     "dev_client": "cd app && yarn start",

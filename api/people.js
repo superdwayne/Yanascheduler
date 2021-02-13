@@ -4,14 +4,10 @@ const bodyParser = require('body-parser')
 const jsonParser = bodyParser.json()
 const { mongoFind, mongoInsert } = require('../mongo')
 
-
-
 router.get('/', (req, res) => {
-
     mongoFind('people', {}, 0, response => {
         res.json(response)
       })
-
 })
 // const people = []
 
